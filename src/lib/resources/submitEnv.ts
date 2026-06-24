@@ -10,6 +10,17 @@ export const SUBMIT_ENDPOINT =
 
 export const PRODUCTION_HOSTNAME = 'akhaled247.github.io';
 
+export const PRODUCTION_HOSTNAMES = [
+  'akhaled247.github.io',
+  'aakhaled.com',
+  'www.aakhaled.com',
+] as const;
+
+export function isProductionSite(hostname?: string): boolean {
+  const host = hostname?.toLowerCase() ?? '';
+  return (PRODUCTION_HOSTNAMES as readonly string[]).includes(host);
+}
+
 export function shouldUseRecaptchaTestKeys(opts: {
   isDev?: boolean;
   hostname?: string;
@@ -18,6 +29,7 @@ export function shouldUseRecaptchaTestKeys(opts: {
   const host = opts.hostname?.toLowerCase() ?? '';
   if (!host) return false;
   if (host === 'localhost' || host === '127.0.0.1') return true;
+  if (isProductionSite(host)) return false;
   return false;
 }
 
@@ -50,7 +62,13 @@ export const LOCAL_SUBMIT_ORIGINS = [
   'http://127.0.0.1:4322',
 ] as const;
 
-export const PRODUCTION_ORIGIN = 'https://akhaled247.github.io';
+export const PRODUCTION_ORIGIN = 'https://aakhaled.com';
+
+export const FRC_AIDES_ORIGINS = [
+  'https://akhaled247.github.io',
+  'https://aakhaled.com',
+  'https://www.aakhaled.com',
+] as const;
 
 export function isAllowedSubmitOrigin(origin: string | undefined, referer: string | undefined): boolean {
   const candidate = origin ?? referer;
@@ -58,8 +76,8 @@ export function isAllowedSubmitOrigin(origin: string | undefined, referer: strin
   try {
     const url = new URL(candidate);
     const originBase = `${url.protocol}//${url.host}`;
-    if (originBase === PRODUCTION_ORIGIN) return true;
-    if ((LOCAL_SUBMIT_ORIGINS as readonly string[]).includes(originBase)) return true;
+    if ((FRC_AIDES_ORIGINS as readonly string[]).includes(originBase)) return true;
+    if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return true;
     return false;
   } catch {
     return false;

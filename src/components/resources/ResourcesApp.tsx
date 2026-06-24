@@ -305,12 +305,13 @@ function SubmitResourceForm({ minorOptions }: SubmitProps) {
         message: 'submit fetch start',
         data: {
           pageOrigin: window.location.origin,
+          pageHref: window.location.href,
           hostname: window.location.hostname,
           port: window.location.port,
           submitEndpoint: SUBMIT_ENDPOINT,
         },
         timestamp: Date.now(),
-        runId: 'pre-fix',
+        runId: 'post-fix-aakhaled',
       }),
     }).catch(() => {});
     // #endregion
@@ -361,7 +362,7 @@ function SubmitResourceForm({ minorOptions }: SubmitProps) {
             pageOrigin: window.location.origin,
           },
           timestamp: Date.now(),
-          runId: 'pre-fix',
+          runId: 'post-fix-aakhaled',
         }),
       }).catch(() => {});
       // #endregion

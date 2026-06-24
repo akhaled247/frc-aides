@@ -15,7 +15,7 @@ export const siteConfig = {
   title: 'FRC Aides — FIRST Programming Tools',
   description:
     'Browser PID tuning simulation and a searchable catalog of FIRST programming resources.',
-  url: 'https://akhaled247.github.io/frc-aides',
+  url: 'https://aakhaled.com/frc-aides',
   author: 'Abdullah Khaled',
   github: 'https://github.com/akhaled247/frc-aides',
   mantik: 'https://mantik.netlify.app',
