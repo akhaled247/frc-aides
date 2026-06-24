@@ -294,6 +294,26 @@ function SubmitResourceForm({ minorOptions }: SubmitProps) {
       return;
     }
     setStatus('loading');
+    // #region agent log
+    fetch('http://127.0.0.1:7347/ingest/2e7e7dfa-a462-4784-9fb9-da6f06015ddd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '2f79fa' },
+      body: JSON.stringify({
+        sessionId: '2f79fa',
+        hypothesisId: 'H1',
+        location: 'ResourcesApp.tsx:handleSubmit',
+        message: 'submit fetch start',
+        data: {
+          pageOrigin: window.location.origin,
+          hostname: window.location.hostname,
+          port: window.location.port,
+          submitEndpoint: SUBMIT_ENDPOINT,
+        },
+        timestamp: Date.now(),
+        runId: 'pre-fix',
+      }),
+    }).catch(() => {});
+    // #endregion
     try {
       const res = await fetch(SUBMIT_ENDPOINT, {
         method: 'POST',
@@ -326,6 +346,25 @@ function SubmitResourceForm({ minorOptions }: SubmitProps) {
       }
     } catch (err) {
       setStatus('error');
+      // #region agent log
+      fetch('http://127.0.0.1:7347/ingest/2e7e7dfa-a462-4784-9fb9-da6f06015ddd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '2f79fa' },
+        body: JSON.stringify({
+          sessionId: '2f79fa',
+          hypothesisId: 'H1',
+          location: 'ResourcesApp.tsx:handleSubmit',
+          message: 'submit fetch error',
+          data: {
+            errName: err instanceof Error ? err.name : 'unknown',
+            errMsg: err instanceof Error ? err.message : String(err),
+            pageOrigin: window.location.origin,
+          },
+          timestamp: Date.now(),
+          runId: 'pre-fix',
+        }),
+      }).catch(() => {});
+      // #endregion
       if (import.meta.env.DEV && err instanceof TypeError) {
         setErrorMsg('Submit endpoint unreachable. Check network or Mantik Netlify function status.');
         return;
