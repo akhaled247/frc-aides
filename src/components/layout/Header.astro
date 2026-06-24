@@ -1,6 +1,5 @@
 ---
 import { appRoutes } from '@/config/navigation';
-import ThemeToggle from '@/components/islands/ThemeToggle.astro';
 
 interface Props {
   currentPath: string;
@@ -31,11 +30,6 @@ function isActive(path: string): boolean {
         </a>
       ))}
     </nav>
-  </div>
-  <div class="header-right">
-    <div class="theme-toggle-container theme-toggle-header">
-      <ThemeToggle />
-    </div>
   </div>
 </header>
 

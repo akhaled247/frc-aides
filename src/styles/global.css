@@ -217,6 +217,7 @@
   html {
     background: var(--color-background-primary) !important;
     min-height: 100%;
+    min-height: 100dvh;
     overflow-y: auto;
   }
   
@@ -228,6 +229,7 @@
   /* Base styles */
   html, body {
     min-height: 100%;
+    min-height: 100dvh;
     background: var(--color-background-primary) !important;
     color: var(--color-foreground-primary);
   }
@@ -363,6 +365,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    min-height: 100dvh;
     overflow-x: hidden; /* Prevent horizontal overflow at page level */
     max-width: 100vw; /* Ensure page doesn't exceed viewport width */
   }
@@ -1037,6 +1040,8 @@ body {
   /* Main content */
   .main {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin-left: 0; /* Start with full-width content */
     transition: margin-left 0.3s ease, max-width 0.3s ease; /* Smooth transition for content */
@@ -1049,7 +1054,7 @@ body {
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    flex: 1;
     width: 100%; /* Allow content to take full width */
     max-width: 90%; /* Increase maximum width for better content display */
     margin: 0 auto; /* Center the content horizontally */
@@ -1824,15 +1829,14 @@ a:hover {
   
   
   
-  /* Footer — aakhaled.com Air skin */
+  /* Footer — aakhaled.com Air skin, pinned to bottom on short pages */
   footer {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     font-size: var(--font-size--small);
-    margin-top: 3rem;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    width: 100vw;
+    margin-top: auto;
+    width: 100%;
     background: var(--color-footer-background);
     color: var(--color-footer-text);
   }
@@ -1845,7 +1849,7 @@ a:hover {
     justify-content: space-between;
     line-height: 1.5;
     margin: 0 auto;
-    max-width: 90%;
+    max-width: min(90%, 72rem);
     padding: 1rem 2rem;
     width: 100%;
   }
@@ -3268,10 +3272,12 @@ html {
     contain: layout style;
 }
 
-/* Main content area - prevent CLS from content loading */
+/* Main content area — flex column so footer stays at bottom */
 .main {
-    /* Minimum height prevents footer from jumping */
-    min-height: calc(100vh - var(--header-height) - 100px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100dvh - var(--header-height));
 }
 
 /* Content area containment removed — was blocking Chrome document scroll */

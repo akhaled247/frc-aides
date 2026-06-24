@@ -7,7 +7,7 @@ export function getSiteTheme(): SiteTheme {
   return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 }
 
-/** Subscribes to `html[data-theme]` changes from the global theme toggle. */
+/** Always light theme; dark toggle removed. */
 export function useSiteTheme(): SiteTheme {
   const [theme, setTheme] = useState<SiteTheme>(getSiteTheme);
 

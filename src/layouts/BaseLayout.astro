@@ -1,7 +1,6 @@
 ---
 import '@/styles/global.css';
 import Header from '@/components/layout/Header.astro';
-import ThemeToggle from '@/components/islands/ThemeToggle.astro';
 import { siteConfig } from '@/config/navigation';
 
 interface Props {
@@ -27,7 +26,7 @@ const canonicalUrl =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#0092ca" />
 
     <title>{fullTitle}</title>
@@ -58,21 +57,7 @@ const canonicalUrl =
     />
 
     <link rel="icon" href={`${baseUrl}media/FRCCodeLabDark.svg`} type="image/svg+xml" />
-    <link
-      rel="icon"
-      href={`${baseUrl}media/FRCCodeLabLight.svg`}
-      type="image/svg+xml"
-      media="(prefers-color-scheme: dark)"
-    />
     <link rel="icon" href={`${baseUrl}media/FRCCodeLab.png`} type="image/png" sizes="any" />
-
-    <script is:inline>
-      (function () {
-        var t = localStorage.getItem('frc-aides-theme');
-        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches))
-          document.documentElement.setAttribute('data-theme', 'dark');
-      })();
-    </script>
   </head>
   <body>
     <div class="page">
@@ -84,20 +69,20 @@ const canonicalUrl =
               <slot />
             </article>
           </div>
-          <footer>
-            <div class="bottom-of-page">
-              <div class="left-details">
-                <div class="copyright">Copyright © 2026 FRC Aides</div>
-                <div class="copyright">
-                  Tools from <a href={siteConfig.mantik} target="_blank" rel="noopener noreferrer">Mantik</a>
-                </div>
-              </div>
-              <div class="right-details">
-                <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <footer>
+          <div class="bottom-of-page">
+            <div class="left-details">
+              <div class="copyright">Copyright © 2026 FRC Aides</div>
+              <div class="copyright">
+                Tools from <a href={siteConfig.mantik} target="_blank" rel="noopener noreferrer">Mantik</a>
               </div>
             </div>
-          </footer>
-        </div>
+            <div class="right-details">
+              <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   </body>
