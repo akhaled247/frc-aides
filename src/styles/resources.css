@@ -41,7 +41,7 @@
 }
 
 .resources-search:focus {
-  outline: 2px solid var(--color-accent, #ce1126);
+  outline: 2px solid var(--color-accent, #0092ca);
   outline-offset: 1px;
 }
 
@@ -208,7 +208,7 @@
 }
 
 .resources-submit-toggle:hover {
-  border-color: var(--color-accent, #ce1126);
+  border-color: var(--color-accent, #0092ca);
 }
 
 .resources-field-label {
@@ -218,7 +218,7 @@
 }
 
 .resources-required {
-  color: var(--color-error, #ce1126);
+  color: var(--color-error, #c0392b);
   font-weight: 700;
 }
 
@@ -235,7 +235,7 @@
   background: none;
   font-family: inherit;
   font-size: var(--font-size--small);
-  color: var(--color-accent, #ce1126);
+  color: var(--color-accent, #0092ca);
   cursor: pointer;
   text-decoration: underline;
 }

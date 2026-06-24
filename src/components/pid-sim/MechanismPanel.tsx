@@ -124,7 +124,7 @@ function MechanismPanel({ simRef, setpoint, highlight }: Props) {
       ctx.fillText(`set ${sp.toFixed(2)} m`, shaftRight + 16, spY - 8);
 
       ctx.fillStyle = palette.mutedText;
-      ctx.font = '11px Cairo, sans-serif';
+      ctx.font = '11px system-ui, sans-serif';
       ctx.fillText('Blue = carriage', margin, topY - 8);
       ctx.fillStyle = '#ff8c42';
       ctx.fillText('Orange dashed = setpoint', margin + 120, topY - 8);

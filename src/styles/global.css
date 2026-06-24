@@ -1,4 +1,4 @@
-/* SWYFT Robotics - Official Design System */
+/* FRC Aides — aakhaled.com Air skin design system */
 /*
  * Table of contents (approximate line numbers):
  *   Variables & themes    :root, light/dark (~3-165)
@@ -29,24 +29,24 @@
  *   Noscript & print      (~3249-end)
  */
 
-/* CSS Variables - Light Theme (Matching SWYFT Robotics Website) */
+/* CSS Variables - Light Theme (aakhaled.com Air skin) */
 :root {
-    /* Typography - Arabic-inspired fonts */
-    --font-stack: 'Cairo', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-stack--monospace: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Menlo, Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
-    --font-stack--headings: 'Cairo', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Typography — Minimal Mistakes / aakhaled.com stack */
+    --font-stack: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+    --font-stack--monospace: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --font-stack--headings: var(--font-stack);
     
-    /* Font Sizes - Increased by 1-2px */
-    --font-size--normal: 14px;
+    /* Font Sizes */
+    --font-size--normal: 16px;
     --font-size--small: 12px;
     --font-size--small--2: 11px;
     --font-size--small--3: 10px;
     --font-size--small--4: 8.5px;
     
     /* Body typography */
-    --body-font-size: 14px;
-    --body-line-height: 22px;
-    --body-letter-spacing: 0.02em;
+    --body-font-size: 16px;
+    --body-line-height: 1.5;
+    --body-letter-spacing: normal;
     
     --sidebar-caption-font-size: var(--font-size--normal);
     --sidebar-item-font-size: var(--font-size--normal);
@@ -57,31 +57,34 @@
     --sidebar-item-spacing-horizontal: 1.25rem;
     --sidebar-item-height: calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical) * 2);
     
-    /* Palestinian Flag Color Palette */
-    --color-foreground-primary: #000000; /* Black - Palestinian flag */
-    --color-foreground-secondary: #333333; /* Dark grey */
-    --color-foreground-muted: #666666;    /* Medium grey */
-    --color-foreground-border: #2D4A41;   /* Dark green/teal border */
-    --color-background-primary: #FFFFFF;  /* White */
-    --color-background-secondary: #F5F5F5; /* Light grey */
-    --color-background-hover: #E8F0ED;   /* Light teal hover */
-    --color-background-border: #2D4A41;  /* Dark green/teal border */
-    --color-brand-primary: #000000;      /* Black - Palestinian flag */
-    --color-brand-primary-rgb: 0, 0, 0; /* RGB values for #000000 */
-    --color-brand-content: #CE1126;      /* Red - Palestinian flag link color */
-    --color-accent: #CE1126;             /* Red - Palestinian flag */
-    --color-success: #2D4A41;            /* Dark green/teal */
-    --color-warning: #FFA500;            /* Orange warning */
-    --color-error: #CE1126;              /* Red - Palestinian flag */
-    --color-black: #000000;              /* Black - Palestinian flag */
+    /* Air skin palette (aakhaled.com) */
+    --color-foreground-primary: #222831;
+    --color-foreground-secondary: #393e46;
+    --color-foreground-muted: #596068;
+    --color-foreground-border: #ced0d1;
+    --color-background-primary: #eeeeee;
+    --color-background-secondary: #ffffff;
+    --color-background-hover: #e3e4e6;
+    --color-background-border: #ced0d1;
+    --color-brand-primary: #0092ca;
+    --color-brand-primary-rgb: 0, 146, 202;
+    --color-brand-content: #0092ca;
+    --color-accent: #0092ca;
+    --color-success: #0092ca;
+    --color-warning: #ffa500;
+    --color-error: #c0392b;
+    --color-black: #222831;
+    --color-on-brand: #ffffff;
+    --color-footer-background: #0092ca;
+    --color-footer-text: #ffffff;
     
-    /* Button Colors - Palestinian Flag Style */
-    --btn-1-color: #FFFFFF;
-    --btn-1-bg: #000000;
-    --btn-1-border: #000000;
-    --btn-1-color-hover: #FFFFFF;
-    --btn-1-bg-hover: #CE1126;
-    --btn-1-border-hover: #CE1126;
+    /* Button Colors */
+    --btn-1-color: #ffffff;
+    --btn-1-bg: #0092ca;
+    --btn-1-border: #0092ca;
+    --btn-1-color-hover: #ffffff;
+    --btn-1-bg-hover: #007aa8;
+    --btn-1-border-hover: #007aa8;
     
     --color-sidebar-background: var(--color-background-primary);
     --color-sidebar-background-border: var(--color-background-border);
@@ -95,11 +98,11 @@
     --color-header-border: var(--color-background-border);
     --color-header-text: var(--color-foreground-primary);
     
-    --color-code-background: #FFFFFF;
-    --color-code-foreground: #000000;
-    --color-inline-code-background: #E8F5E9;
+    --color-code-background: #ffffff;
+    --color-code-foreground: #222831;
+    --color-inline-code-background: #f0f0f0;
     
-    --color-link: #CE1126; /* Red - Palestinian flag link color */
+    --color-link: #393e46;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -118,20 +121,20 @@
   @media (prefers-color-scheme: dark) {
     html:not([data-theme="dark"])[data-theme="light"],
       html:not([data-theme="dark"]):not([data-theme]) {
-      /* Palestinian Flag Color Theme (light) */
-    --color-background-primary: #FFFFFF; /* White - Palestinian flag */
-    --color-background-secondary: #F5F5F5; /* Light grey */
-    --color-background-hover: #E8F0ED;   /* Light teal hover */
-    --color-background-border: #2D4A41;  /* Dark green/teal */
-    --color-foreground-primary: #000000; /* Black - Palestinian flag */
-    --color-foreground-secondary: #333333; /* Dark grey */
-    --color-foreground-muted: #666666;    /* Medium grey */
-    --color-foreground-border: #2D4A41;
-    --color-brand-primary: #000000;      /* Black - Palestinian flag */
-    --color-brand-primary-rgb: 0, 0, 0; /* RGB values for #000000 */
-    --color-brand-content: #CE1126;      /* Red - Palestinian flag link color */
-    --color-code-background: #FFFFFF; /* White code background */
-    --color-code-foreground: #000000; /* Black code text */
+      /* Air skin (light) */
+    --color-background-primary: #eeeeee;
+    --color-background-secondary: #ffffff;
+    --color-background-hover: #e3e4e6;
+    --color-background-border: #ced0d1;
+    --color-foreground-primary: #222831;
+    --color-foreground-secondary: #393e46;
+    --color-foreground-muted: #596068;
+    --color-foreground-border: #ced0d1;
+    --color-brand-primary: #0092ca;
+    --color-brand-primary-rgb: 0, 146, 202;
+    --color-brand-content: #0092ca;
+    --color-code-background: #ffffff;
+    --color-code-foreground: #222831;
   
       
       /* Update derived sidebar colors for dark theme */
@@ -154,25 +157,28 @@
       }
   }
   
-  /* Dark Theme - Palestinian Flag Colors */
+  /* Dark Theme — Minimal Mistakes dark skin */
   html[data-theme="dark"] {
-    --color-foreground-primary: #FFFFFF;
-    --color-foreground-secondary: #CCCCCC;
+    --color-foreground-primary: #eaeaea;
+    --color-foreground-secondary: #cccccc;
     --color-foreground-muted: #999999;
-    --color-foreground-border: #2D4A41;
-    --color-background-primary: #000000;
-    --color-background-secondary: #1a1a1a;
-    --color-background-hover: #1a2e28;
-    --color-background-border: #2D4A41;
-    --color-brand-primary: #CE1126;
-    --color-brand-primary-rgb: 206, 17, 38; /* RGB values for #CE1126 */
-    --color-brand-content: #CE1126;
-    --color-accent: #CE1126;
-    --color-success: #2D4A41;
-    --color-warning: #FFA500;
-    --color-error: #CE1126;
-    --color-code-background: #000000;
-    --color-code-foreground: #FFFFFF;
+    --color-foreground-border: #4a5060;
+    --color-background-primary: #252a34;
+    --color-background-secondary: #2f3540;
+    --color-background-hover: #323945;
+    --color-background-border: #4a5060;
+    --color-brand-primary: #00adb5;
+    --color-brand-primary-rgb: 0, 173, 181;
+    --color-brand-content: #00adb5;
+    --color-accent: #00adb5;
+    --color-success: #00adb5;
+    --color-warning: #ffa500;
+    --color-error: #e74c3c;
+    --color-code-background: #1e232b;
+    --color-code-foreground: #eaeaea;
+    --color-footer-background: #00adb5;
+    --color-footer-text: #ffffff;
+    --color-link: #76c5c9;
     
     /* Update derived sidebar colors for dark theme */
     --color-sidebar-background: var(--color-background-secondary);
@@ -195,8 +201,8 @@
   
   /* Dark theme header styling */
   html[data-theme="dark"] .mobile-header {
-    background-color: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(12px);
+    background-color: var(--color-background-primary);
+    backdrop-filter: none;
     border-bottom: 1px solid var(--color-background-border);
   }
   
@@ -426,13 +432,13 @@ body {
     color: var(--color-foreground-primary);
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border-radius: 0; /* SWYFT uses no border radius */
-    font-size: 16px; /* SWYFT menu-lv1-size */
-    font-weight: 700; /* SWYFT menu-lv1-weight */
-    letter-spacing: 0.05em; /* SWYFT menu-lv1-letter-spacing */
-    text-transform: uppercase; /* SWYFT menu-lv1-text-transform */
-    line-height: 22px; /* SWYFT menu-lv1-line-height */
-    transition: all ease 0.3s; /* SWYFT anchor-transition */
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-transform: none;
+    line-height: 1.375;
+    transition: all ease 0.3s;
     position: relative;
   }
   
@@ -572,7 +578,7 @@ body {
   
   .match-text mark {
     background-color: var(--color-brand-primary);
-    color: var(--color-background-primary);
+    color: var(--color-on-brand);
     padding: 0.1rem 0.2rem;
     border-radius: 0.2rem;
   }
@@ -1024,7 +1030,7 @@ body {
   .sidebar-tree .current-page > .reference {
     font-weight: 700;
     background: var(--color-brand-primary);
-    color: var(--color-background-primary);
+    color: var(--color-on-brand);
     box-shadow: var(--shadow-sm);
   }
   
@@ -1078,12 +1084,12 @@ body {
   }
   
 h1, h2, h3, h4, h5, h6 {
-    border-radius: 0.5rem;
+    border-radius: 0;
     font-family: var(--font-stack--headings);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: 0.05em; /* SWYFT heading letter spacing */
-    text-transform: uppercase; /* SWYFT headings are uppercase */
+    letter-spacing: normal;
+    text-transform: none;
     margin: 0.5rem -0.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -1268,62 +1274,62 @@ a:hover {
     transform: scale(0.95);
   }
   
-  /* Java Syntax Highlighting - Light Theme (Palestinian Flag Colors) */
+  /* Java Syntax Highlighting - Light Theme */
   .code-block code .java-keyword {
-    color: #000000;
+    color: #222831;
     font-weight: 700;
   }
   
   .code-block code .java-type {
-    color: #007A3D;
+    color: #0092ca;
     font-weight: 600;
   }
   
   .code-block code .java-literal {
-    color: #CE1126;
+    color: #393e46;
     font-weight: 500;
   }
   
   .code-block code .java-string {
-    color: #007A3D;
+    color: #007aa8;
   }
   
   .code-block code .java-number {
-    color: #CE1126;
+    color: #0092ca;
   }
   
   .code-block code .java-comment {
-    color: #666666;
+    color: #596068;
     font-style: italic;
   }
   
   .code-block code .java-annotation {
-    color: #CE1126;
+    color: #0092ca;
     font-weight: 600;
   }
   
-  /* Java Syntax Highlighting - Dark Theme (Palestinian Flag Colors) */
+  /* Java Syntax Highlighting - Dark Theme */
   html[data-theme="dark"] .code-block code .java-keyword {
-    color: #FFFFFF;
+    color: #eaeaea;
     font-weight: 700;
   }
   
   html[data-theme="dark"] .code-block code .java-type {
-    color: #007A3D;
+    color: #00adb5;
     font-weight: 600;
   }
   
   html[data-theme="dark"] .code-block code .java-literal {
-    color: #CE1126;
+    color: #cccccc;
     font-weight: 500;
   }
   
   html[data-theme="dark"] .code-block code .java-string {
-    color: #007A3D;
+    color: #76c5c9;
   }
   
   html[data-theme="dark"] .code-block code .java-number {
-    color: #CE1126;
+    color: #00adb5;
   }
   
   html[data-theme="dark"] .code-block code .java-comment {
@@ -1332,7 +1338,7 @@ a:hover {
   }
   
   html[data-theme="dark"] .code-block code .java-annotation {
-    color: #CE1126;
+    color: #00adb5;
     font-weight: 600;
   }
   
@@ -1818,24 +1824,39 @@ a:hover {
   
   
   
-  /* Footer */
+  /* Footer — aakhaled.com Air skin */
   footer {
     display: flex;
     flex-direction: column;
     font-size: var(--font-size--small);
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+    background: var(--color-footer-background);
+    color: var(--color-footer-text);
   }
   
   .bottom-of-page {
     align-items: center;
-    border-top: 1px solid var(--color-background-border);
-    color: var(--color-foreground-secondary);
+    border-top: none;
+    color: inherit;
     display: flex;
     justify-content: space-between;
     line-height: 1.5;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+
+  .bottom-of-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .bottom-of-page a:hover {
+    text-decoration: underline;
   }
   
   .bottom-of-page .left-details {

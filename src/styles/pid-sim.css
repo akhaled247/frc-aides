@@ -1,4 +1,4 @@
-/* PID Simulation app — extends SWYFT design system */
+/* PID Simulation app — extends aakhaled.com Air design system */
 
 .pid-sim-app {
   --pid-editor-bg: var(--color-code-background, #ffffff);
@@ -97,7 +97,7 @@ body:has(.pid-sim-workspace) .main .content {
 }
 
 .pid-sim-picker-select:focus {
-  outline: 2px solid var(--color-accent, #ce1126);
+  outline: 2px solid var(--color-accent, #0092ca);
   outline-offset: 1px;
 }
 
