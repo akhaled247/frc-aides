@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { appRoutes, siteConfig } from '@/config/navigation';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title={siteConfig.title}
+  description={siteConfig.description}
+  currentPath="/"
+>
+  <div class="frc-aides-landing">
+    <h1>FRC Aides</h1>
+    <p class="frc-aides-intro">
+      Browser tools for FIRST programming teams — PID tuning practice and a searchable programming
+      resource catalog. Built from the Mantik learning platform.
+    </p>
+    <div class="frc-aides-cards">
+      {appRoutes.map((route) => (
+        <a href={base + route.path} class="frc-aides-card">
+          <h2>{route.label}</h2>
+          <p>
+            {route.id === 'pid-simulation'
+              ? 'Practice elevator, arm, and flywheel PID tuning with WPILib-style code, Elastic-style tuning, and AdvantageScope-style graphs.'
+              : 'Browse docs, tutorials, and tools for Java, FTC, FRC, and competitive coding.'}
+          </p>
+          <span class="frc-aides-card-cta">Open →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .frc-aides-landing {
+    padding: 1.5rem 1.5rem 2rem;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .frc-aides-intro {
+    margin-bottom: 1.5rem;
+    line-height: 1.55;
+    color: var(--color-foreground-secondary);
+  }
+  .frc-aides-cards {
+    display: grid;
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .frc-aides-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .frc-aides-card {
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid var(--color-foreground-border);
+    border-radius: 8px;
+    background: var(--color-background-secondary);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .frc-aides-card:hover {
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .frc-aides-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+  }
+  .frc-aides-card p {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-foreground-secondary);
+  }
+  .frc-aides-card-cta {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-brand-primary);
+  }
+</style>

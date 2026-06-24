@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akhaled247.github.io/frc-aides/sitemap-index.xml

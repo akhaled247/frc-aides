@@ -1,0 +1,52 @@
+---
+import { appRoutes } from '@/config/navigation';
+import ThemeToggle from '@/components/islands/ThemeToggle.astro';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function isActive(path: string): boolean {
+  if (path === '/') return currentPath === '/' || currentPath === '';
+  return currentPath.startsWith(path);
+}
+---
+
+<header class="mobile-header">
+  <div class="header-left">
+    <a href={base + '/'} class="header-brand">FRC Aides</a>
+  </div>
+  <div class="header-center">
+    <nav class="header-navigation">
+      <a href={base + '/'} class:list={['header-nav-link', { active: isActive('/') }]}>Home</a>
+      {appRoutes.map((route) => (
+        <a
+          href={base + route.path}
+          class:list={['header-nav-link', { active: isActive(route.path) }]}
+        >
+          {route.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+  <div class="header-right">
+    <div class="theme-toggle-container theme-toggle-header">
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .header-brand {
+    font-weight: 600;
+    color: var(--color-foreground-primary);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+  }
+  .header-brand:hover {
+    color: var(--color-brand-primary);
+  }
+</style>
