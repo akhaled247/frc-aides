@@ -1,0 +1,20 @@
+[
+  {
+    "eventType": 0,
+    "winningAlliance": "red",
+    "redTeams": [254, 1678],
+    "blueTeams": [118, 2056]
+  },
+  {
+    "eventType": 0,
+    "winningAlliance": "blue",
+    "redTeams": [254],
+    "blueTeams": [118]
+  },
+  {
+    "eventType": 0,
+    "winningAlliance": "blue",
+    "redTeams": [254],
+    "blueTeams": [118]
+  }
+]

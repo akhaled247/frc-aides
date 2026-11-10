@@ -13,8 +13,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="frc-aides-landing">
     <h1>FRC Aides</h1>
     <p class="frc-aides-intro">
-      Browser tools for FIRST programming teams — PID tuning practice and a searchable programming
-      resource catalog. Built from the Mantik learning platform.
+      Browser tools for FIRST programming teams — PID tuning practice, a searchable programming
+      resource catalog, and Tree of Defeat path explorer. Built from the Mantik learning platform.
     </p>
     <div class="frc-aides-cards">
       {appRoutes.map((route) => (
@@ -23,7 +23,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <p>
             {route.id === 'pid-simulation'
               ? 'Practice elevator, arm, and flywheel PID tuning with WPILib-style code, Elastic-style tuning, and AdvantageScope-style graphs.'
-              : 'Browse docs, tutorials, and tools for Java, FTC, FRC, and competitive coding.'}
+              : route.id === 'tree-of-defeat'
+                ? 'Trace each team’s worst head-to-head record until the chain loops — basins, cycles, and shareable paths.'
+                : 'Browse docs, tutorials, and tools for Java, FTC, FRC, and competitive coding.'}
           </p>
           <span class="frc-aides-card-cta">Open →</span>
         </a>
@@ -50,6 +52,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   @media (min-width: 640px) {
     .frc-aides-cards {
       grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 900px) {
+    .frc-aides-cards {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
   .frc-aides-card {

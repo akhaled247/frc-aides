@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TreeOfDefeatApp from '@/components/tree-of-defeat/TreeOfDefeatApp';
+import { getDefeatDataset } from '@/lib/tree-of-defeat/getDefeatDataset';
+import '@/styles/tree-of-defeat.css';
+
+const { catalog } = getDefeatDataset();
+---
+
+<BaseLayout
+  title="Tree of Defeat"
+  description="Trace each FRC team's worst head-to-head record until the chain loops — basins, cycles, and shareable paths."
+  currentPath="/tree-of-defeat"
+>
+  <TreeOfDefeatApp client:load catalog={catalog} />
+</BaseLayout>

@@ -11,7 +11,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test:physics": "vitest run"
+    "test:physics": "vitest run",
+    "test:tree": "vitest run src/lib/tree-of-defeat",
+    "defeat:rebuild": "vite-node scripts/rebuild-defeat-edges.ts"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.0",

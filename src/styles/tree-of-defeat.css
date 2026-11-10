@@ -1,0 +1,327 @@
+.tod-app {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 2.5rem;
+}
+
+.tod-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.tod-hero p {
+  margin: 0 0 1.25rem;
+  color: var(--color-foreground-secondary);
+  line-height: 1.55;
+}
+
+.tod-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.tod-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tod-form input {
+  flex: 1 1 10rem;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--color-foreground-border);
+  border-radius: 6px;
+  background: var(--color-background-secondary);
+  color: inherit;
+  font: inherit;
+}
+
+.tod-form button,
+.tod-path-link {
+  font: inherit;
+  cursor: pointer;
+}
+
+.tod-form button {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-brand-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.tod-form button:hover {
+  filter: brightness(1.05);
+}
+
+.tod-empty {
+  margin-top: 1rem;
+  color: var(--color-foreground-secondary);
+}
+
+.tod-summary {
+  margin: 1.5rem 0 1rem;
+}
+
+.tod-summary h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.tod-summary p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--color-foreground-secondary);
+}
+
+.tod-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.15rem;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-foreground-border);
+  border-radius: 8px;
+  background: var(--color-background-secondary);
+}
+
+.tod-chain-step {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tod-chain-node {
+  display: flex;
+  flex-direction: column;
+  min-width: 4.5rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-foreground-border);
+  background: var(--color-background);
+}
+
+.tod-chain-node--start {
+  border-color: var(--color-brand-primary);
+}
+
+.tod-chain-node--cycle {
+  border-color: #c45c26;
+  box-shadow: inset 0 0 0 1px rgba(196, 92, 38, 0.25);
+}
+
+.tod-chain-num {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.tod-chain-name {
+  font-size: 0.7rem;
+  line-height: 1.2;
+  color: var(--color-foreground-secondary);
+  max-width: 6.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tod-chain-edge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.15rem;
+  color: var(--color-foreground-secondary);
+  font-size: 0.7rem;
+}
+
+.tod-chain-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--color-brand-primary);
+}
+
+.tod-chain-loop-tag {
+  margin-left: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #c45c26;
+}
+
+.tod-chain-caption {
+  flex: 1 0 100%;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-foreground-secondary);
+}
+
+.tod-path-list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+.tod-path-list__cycle {
+  font-weight: 600;
+}
+
+.tod-path-link {
+  border: none;
+  padding: 0;
+  background: none;
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tod-path-record {
+  color: var(--color-foreground-secondary);
+  font-size: 0.9rem;
+}
+
+.tod-graph {
+  position: relative;
+  height: min(62vh, 520px);
+  margin: 0 0 1.25rem;
+  border: 1px solid var(--color-foreground-border);
+  border-radius: 8px;
+  background: var(--color-background-secondary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tod-graph-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-foreground-secondary);
+  border-bottom: 1px solid var(--color-foreground-border);
+  background: var(--color-background);
+  flex: 0 0 auto;
+}
+
+.tod-graph-svg {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 146, 202, 0.06), transparent 45%),
+    var(--color-background-secondary);
+}
+
+.tod-graph-svg:active {
+  cursor: grabbing;
+}
+
+.tod-glink {
+  fill: none;
+  stroke-width: 1.75;
+}
+
+.tod-glink--path {
+  stroke: rgba(0, 146, 202, 0.7);
+}
+
+.tod-glink--inbound {
+  stroke: rgba(138, 154, 168, 0.55);
+  stroke-dasharray: 4 3;
+}
+
+.tod-gnode {
+  cursor: pointer;
+}
+
+.tod-gnode circle {
+  stroke-width: 2;
+}
+
+.tod-gnode text {
+  fill: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.tod-gnode--start circle {
+  fill: #0092ca;
+  stroke: #005f85;
+}
+
+.tod-gnode--path circle {
+  fill: #3d4f5f;
+  stroke: #2a3742;
+}
+
+.tod-gnode--cycle circle {
+  fill: #c45c26;
+  stroke: #8a3d14;
+}
+
+.tod-gnode--inbound circle {
+  fill: #8a9aa8;
+  stroke: #6d7c88;
+}
+
+.tod-gnode:focus-visible circle {
+  outline: 2px solid var(--color-brand-primary);
+}
+
+.tod-graph-legend {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-size: 0.72rem;
+  color: var(--color-foreground-secondary);
+  pointer-events: none;
+}
+
+.tod-swatch {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.25rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.tod-swatch--start {
+  background: #0092ca;
+}
+
+.tod-swatch--path {
+  background: #3d4f5f;
+}
+
+.tod-swatch--cycle {
+  background: #c45c26;
+}
+
+.tod-swatch--inbound {
+  background: #8a9aa8;
+}
+
+.tod-footnote {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-foreground-secondary);
+}
+
+.tod-footnote code {
+  font-size: 0.85em;
+}
