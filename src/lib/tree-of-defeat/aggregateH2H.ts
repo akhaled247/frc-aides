@@ -172,7 +172,7 @@ export function buildCatalogFromMatches(
       officialOnly: true,
       generatedAt: options.generatedAt ?? new Date().toISOString(),
       source: options.source ?? 'aggregateH2H',
-      tieBreak: 'winpct_then_losses_then_team_number',
+      tieBreak: 'wilson_loss_confidence_then_team_number',
       years: options.years,
       matchCount: matches.filter((m) => isOfficialEvent(m.eventType)).length,
       teamCount: Object.keys(teams).length,

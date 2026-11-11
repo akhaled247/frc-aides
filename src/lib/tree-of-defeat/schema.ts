@@ -26,8 +26,8 @@ export const defeatMetaSchema = z.object({
   officialOnly: z.literal(true),
   generatedAt: z.string().min(1),
   source: z.string().min(1),
-  /** Documented ranking: lower win% worse; then more losses; then lower opponent team #. */
-  tieBreak: z.literal('winpct_then_losses_then_team_number'),
+  /** TBA Beta Worst Record: Wilson loss-confidence (z=3); then lower opponent team #. */
+  tieBreak: z.literal('wilson_loss_confidence_then_team_number'),
   years: z.array(z.number().int()).optional(),
   matchCount: z.number().int().nonnegative().optional(),
   teamCount: z.number().int().nonnegative().optional(),

@@ -165,9 +165,8 @@ export default function TreeOfDefeatApp({ catalog }: Props) {
       )}
 
       <p className="tod-footnote">
-        Metric: official-event head-to-head <strong>worst win%</strong> (not identical to TBA Beta
-        “Worst Record” if their formula differs). Tie-break: lower win% → more losses → lower opponent
-        number. Inspired by{' '}
+        Metric: TBA Beta <strong>Worst Record Against</strong> — Wilson score lower bound on losses
+        vs wins (z=3, ties ignored); tie-break lower opponent number. Inspired by{' '}
         <a
           href="https://www.chiefdelphi.com/t/the-tree-of-defeat/526027"
           target="_blank"

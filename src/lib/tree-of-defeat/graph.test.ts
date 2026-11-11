@@ -24,13 +24,13 @@ describe('defeat-edges catalog', () => {
 });
 
 describe('getPath / getCycle', () => {
-  it('walks 254 into a cycle that includes 254 itself in this snapshot', () => {
+  it('walks 254 into the main attractor cycle in this snapshot', () => {
     const result = getPath(254, successors);
     expect(result.path[0]).toBe(254);
     expect(result.cycleStart).toBeGreaterThanOrEqual(0);
     const cycle = getCycle(result);
     expect(cycle.length).toBeGreaterThan(1);
-    expect(cycle).toContain(254);
+    expect(cycle).toContain(67);
     expect(result.path.at(-1)).toBe(cycle[0]);
   });
 
