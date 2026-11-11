@@ -4,9 +4,9 @@
  *
  * Usage:
  *   TBA_AUTH_KEY=... npm run defeat:rebuild
- *   npm run defeat:rebuild -- --years 2015-2025
+ *   npm run defeat:rebuild -- --years 2015-2026
  *   npm run defeat:rebuild -- --input path/to/matches.json
- *   npm run defeat:rebuild -- --from 2005 --to 2025
+ *   npm run defeat:rebuild -- --from 1992 --to 2026
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -48,7 +48,7 @@ function parseYearsToken(token: string): number[] {
 function parseArgs(argv: string[]): Args {
   const currentYear = new Date().getUTCFullYear();
   const args: Args = {
-    years: yearRange(2005, currentYear),
+    years: yearRange(1992, currentYear),
     input: '',
     dryRun: false,
     skipNames: false,
@@ -63,7 +63,7 @@ function parseArgs(argv: string[]): Args {
       args.years = yearRange(from, to);
     } else if (a === '--to') {
       const to = Number(argv[++i]);
-      const from = args.years[0] ?? 2005;
+      const from = args.years[0] ?? 1992;
       args.years = yearRange(from, to);
     } else if (a === '--dry-run') args.dryRun = true;
     else if (a === '--skip-names') args.skipNames = true;

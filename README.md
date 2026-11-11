@@ -38,7 +38,7 @@ Offline pipeline pulls official TBA matches for every event in a year range, bui
 ```bash
 cp .env.example .env   # set TBA_AUTH_KEY from https://www.thebluealliance.com/account
 npm run test:tree
-# Full all-team graph (default years 2005→current; responses cached in .cache/tba):
+# Full all-team graph (default years 1992→current; responses cached in .cache/tba):
 npm run defeat:rebuild
 # Narrow window:
 npm run defeat:rebuild -- --years 2018-2025
